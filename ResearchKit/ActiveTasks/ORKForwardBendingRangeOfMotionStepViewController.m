@@ -1,5 +1,6 @@
 /*
  Copyright (c) 2016, Darren Levy. All rights reserved.
+ Copyright (c) 2018, David Evans, University of Birmingham. All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification,
  are permitted provided that the following conditions are met:
@@ -29,13 +30,14 @@
  */
 
 
-#import "ORKShoulderRangeOfMotionStepViewController.h"
+#import "ORKForwardBendingRangeOfMotionStepViewController.h"
 
 #import "ORKRangeOfMotionResult.h"
 #import "ORKStepViewController_Internal.h"
 
 
-@implementation ORKShoulderRangeOfMotionStepViewController
+
+@implementation ORKForwardBendingRangeOfMotionStepViewController
 
 #pragma mark - ORKActiveTaskViewController
 
@@ -43,13 +45,13 @@
     ORKStepResult *stepResult = [super result];
     
     ORKRangeOfMotionResult *result = [[ORKRangeOfMotionResult alloc] initWithIdentifier:self.step.identifier];
-    result.start = 90.0 - _startAngle;
+    result.start = _startAngle - 90.0;
     result.finish = _rangeOfMotionAngle - result.start;
     // ADDED this to expose the min/max angles in the result
-    result.minimum = result.start - _maxAngle;
-    result.maximum = result.start - _minAngle;
+    result.minimum = _minAngle - result.start;
+    result.maximum = _maxAngle - result.start;
     result.range = fabs(result.maximum - result.minimum);
-
+    
     stepResult.results = [self.addedResults arrayByAddingObject:result] ? : @[result];
     
     return stepResult;

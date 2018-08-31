@@ -29,30 +29,15 @@
  */
 
 
-#import "ORKShoulderRangeOfMotionStepViewController.h"
+#import "ORKTrunkRotationRangeOfMotionStep.h"
+#import "ORKTrunkRotationRangeOfMotionStepViewController.h"
+#import "ORKHelpers_Internal.h"
 
-#import "ORKRangeOfMotionResult.h"
-#import "ORKStepViewController_Internal.h"
 
+@implementation ORKTrunkRotationRangeOfMotionStep
 
-@implementation ORKShoulderRangeOfMotionStepViewController
-
-#pragma mark - ORKActiveTaskViewController
-
-- (ORKResult *)result {
-    ORKStepResult *stepResult = [super result];
-    
-    ORKRangeOfMotionResult *result = [[ORKRangeOfMotionResult alloc] initWithIdentifier:self.step.identifier];
-    result.start = 90.0 - _startAngle;
-    result.finish = _rangeOfMotionAngle - result.start;
-    // ADDED this to expose the min/max angles in the result
-    result.minimum = result.start - _maxAngle;
-    result.maximum = result.start - _minAngle;
-    result.range = fabs(result.maximum - result.minimum);
-
-    stepResult.results = [self.addedResults arrayByAddingObject:result] ? : @[result];
-    
-    return stepResult;
++ (Class)stepViewControllerClass {
+    return [ORKTrunkRotationRangeOfMotionStepViewController class];
 }
 
 @end

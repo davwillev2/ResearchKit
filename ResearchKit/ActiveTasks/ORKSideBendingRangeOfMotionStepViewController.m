@@ -1,5 +1,6 @@
 /*
  Copyright (c) 2016, Darren Levy. All rights reserved.
+ Copyright (c) 2018, David Evans, University of Birmingham. All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification,
  are permitted provided that the following conditions are met:
@@ -29,27 +30,22 @@
  */
 
 
-#import "ORKRangeOfMotionStepViewController.h"
+#import "ORKSideBendingRangeOfMotionStepViewController.h"
+
+#import "ORKRangeOfMotionResult.h"
+#import "ORKStepViewController_Internal.h"
 
 #import "ORKCustomStepView_Internal.h"
-#import "ORKHelpers_Internal.h"
 #import "ORKActiveStepViewController_Internal.h"
-#import "ORKStepViewController_Internal.h"
-#import "ORKVerticalContainerView_Internal.h"
 #import "ORKDeviceMotionRecorder.h"
 #import "ORKActiveStepView.h"
 #import "ORKProgressView.h"
-#import "ORKRangeOfMotionResult.h"
-#import "ORKSkin.h"
 
 
 #define radiansToDegrees(radians) ((radians) * 180.0 / M_PI)
 #define allOrientationsForPitch(x, w, y, z) (atan2(2.0 * (x*w + y*z), 1.0 - 2.0 * (x*x + z*z)))
-//Added definition for roll (y-axis rotation)
 #define allOrientationsForRoll(x, w, y, z) (atan2(2.0 * (y*w - x*z), 1.0 - 2.0 * (y*y + z*z)))
-//Added definition for yaw (z-axis rotation)
 #define allOrientationsForYaw(x, w, y, z) (asin(2.0 * (x*y - w*z)))
-
 
 @interface ORKRangeOfMotionContentView : ORKActiveStepCustomView {
     NSLayoutConstraint *_topConstraint;
@@ -60,69 +56,7 @@
 @end
 
 
-@implementation ORKRangeOfMotionContentView
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        _progressView = [ORKProgressView new];
-        _progressView.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        [self addSubview:_progressView];
-        [self setUpConstraints];
-        [self updateConstraintConstantsForWindow:self.window];
-    }
-    return self;
-}
-
-- (void)willMoveToWindow:(UIWindow *)newWindow {
-    [super willMoveToWindow:newWindow];
-    [self updateConstraintConstantsForWindow:newWindow];
-}
-
-- (void)setUpConstraints {
-    NSMutableArray *constraints = [NSMutableArray new];
-    NSDictionary *views = NSDictionaryOfVariableBindings(_progressView);
-    [constraints addObjectsFromArray:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_progressView]-(>=0)-|"
-                                             options:NSLayoutFormatAlignAllCenterX
-                                             metrics:nil
-                                               views:views]];
-    _topConstraint = [NSLayoutConstraint constraintWithItem:_progressView
-                                                  attribute:NSLayoutAttributeTop
-                                                  relatedBy:NSLayoutRelationEqual
-                                                     toItem:self
-                                                  attribute:NSLayoutAttributeTop
-                                                 multiplier:1.0
-                                                   constant:0.0]; // constant will be set in updateConstraintConstantsForWindow:
-    [constraints addObject:_topConstraint];
-    
-    [constraints addObject:[NSLayoutConstraint constraintWithItem:_progressView
-                                                        attribute:NSLayoutAttributeCenterX
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeCenterX
-                                                       multiplier:1.0
-                                                         constant:0.0]];
-    
-    [NSLayoutConstraint activateConstraints:constraints];
-}
-
-- (void)updateConstraintConstantsForWindow:(UIWindow *)window {
-    const CGFloat CaptionBaselineToProgressTop = 100;
-    const CGFloat CaptionBaselineToStepViewTop = ORKGetMetricForWindow(ORKScreenMetricLearnMoreBaselineToStepViewTop, window);
-    _topConstraint.constant = CaptionBaselineToProgressTop - CaptionBaselineToStepViewTop;
-}
-
-- (void)updateConstraints {
-    [self updateConstraintConstantsForWindow:self.window];
-    [super updateConstraints];
-}
-
-@end
-
-
-@interface ORKRangeOfMotionStepViewController () <ORKDeviceMotionRecorderDelegate> {
+@interface ORKSideBendingRangeOfMotionStepViewController () <ORKDeviceMotionRecorderDelegate> {
     ORKRangeOfMotionContentView *_contentView;
     UITapGestureRecognizer *_gestureRecognizer;
     CMAttitude *_referenceAttitude;
@@ -131,10 +65,11 @@
     //double _lowestAngle;
     //double _lastAngle;
 }
+
 @end
 
 
-@implementation ORKRangeOfMotionStepViewController
+@implementation ORKSideBendingRangeOfMotionStepViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -151,23 +86,22 @@
 }
 
 - (void)calculateAndSetAngles {
-// REPLACED  _startAngle = fabs([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
+    // REPLACED  _startAngle = fabs([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     _startAngle = ([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     
     //Changed this to two Boolean functions
-    BOOL rangeOfMotionMoreThanPlus180Degrees = _highestAngle > 179;
+    BOOL rangeOfMotionMoreThanPlus180Degrees = _highestAngle > 178.5 || _highestAngle > 179;
     if (rangeOfMotionMoreThanPlus180Degrees) {
         _rangeOfMotionAngle = 360 - fabs(_lastAngle);
     } else {
         _rangeOfMotionAngle = _lastAngle;
     }
-    BOOL rangeOfMotionLessThanMinus180Degrees = _lowestAngle < -179;
+    BOOL rangeOfMotionLessThanMinus180Degrees = _lowestAngle < -178.5 || _lowestAngle < -179;
     if (rangeOfMotionLessThanMinus180Degrees) {
         _rangeOfMotionAngle = fabs(_lastAngle) - 360;
     } else {
         _rangeOfMotionAngle = _lastAngle;
     }
-    
     // ADDED this to get the min/max values
     if (_rangeOfMotionAngle > _maxAngle) {
         _maxAngle = _rangeOfMotionAngle;
@@ -184,52 +118,51 @@
         _referenceAttitude = motion.attitude;
     }
     CMAttitude *currentAttitude = [motion.attitude copy];
-
-    [currentAttitude multiplyByInverseOfAttitude:_referenceAttitude];
+    
+    //Replaced: [currentAttitude multiplyByInverseOfAttitude:_referenceAttitude];
+    [(currentAttitude)multiplyByInverseOfAttitude:(CMAttitude *)_referenceAttitude];
     
     double angle = [self getDeviceAngleInDegreesFromAttitude:currentAttitude];
-
-   if (angle > _highestAngle) {
+    
+    if (angle > _highestAngle) {
         _highestAngle = angle;
     }
     if (angle < _lowestAngle) {
         _lowestAngle = angle;
     }
-      _lastAngle = angle;
+    _lastAngle = angle;
     
     // ADDED this to calculate the min/max for every motion update
     [self calculateAndSetAngles];
 }
 
 /*
- When the device is in Portrait mode, we need to get the attitude's pitch
- to determine the device's angle. attitude.pitch doesn't return all
- orientations, so we use the attitude's quaternion to calculate the
- angle.
+ When recording rotation in the frontal plane and the device is
+ in either Portrait or Landscape mode, we need to get the attitude's yaw
+ to determine the device's angle. attitude.yaw doesn't return all
+ orientations, so we use the attitude's quaternion to calculate the angle.
  */
+
 - (double)getDeviceAngleInDegreesFromAttitude:(CMAttitude *)attitude {
     if (!_orientation) {
         _orientation = [UIApplication sharedApplication].statusBarOrientation;
     }
     double angle;
     if (UIInterfaceOrientationIsLandscape(_orientation)) {
-        //  replaced:      angle = radiansToDegrees(attitude.roll);
         double x = attitude.quaternion.x;
         double w = attitude.quaternion.w;
         double y = attitude.quaternion.y;
         double z = attitude.quaternion.z;
-        angle = radiansToDegrees(allOrientationsForRoll(x, w, y, z));
-        
+        angle = radiansToDegrees(allOrientationsForYaw(x, w, y, z));
     } else {
         double x = attitude.quaternion.x;
         double w = attitude.quaternion.w;
         double y = attitude.quaternion.y;
         double z = attitude.quaternion.z;
-        angle = radiansToDegrees(allOrientationsForPitch(x, w, y, z));
+        angle = radiansToDegrees(allOrientationsForYaw(x, w, y, z));
     }
     return angle;
 }
-
 
 #pragma mark - ORKActiveTaskViewController
 
@@ -238,16 +171,14 @@
     
     ORKRangeOfMotionResult *result = [[ORKRangeOfMotionResult alloc] initWithIdentifier:self.step.identifier];
     
-    // replaced: result.flexed = _flexedAngle;
-    result.start = 90.0 - _startAngle;
-    //replaced: result.extended = result.flexed - _rangeOfMotionAngle;
-    result.finish = result.start - _rangeOfMotionAngle;
+    result.start = _startAngle;
+    result.finish = _rangeOfMotionAngle + result.start;
     // ADDED this to expose the min/max angles in the result. Because the task uses pitch in the direction opposite to the device axis, they are the 'wrong' way around in the knee and shoulder tasks
-    result.minimum = result.start - _maxAngle;
-    result.maximum = result.start - _minAngle;
+    result.minimum = result.start + _minAngle;
+    result.maximum = result.start + _maxAngle;
     //ADDED this to calculate the range of angle moved from maximum to minimum, in order to allow for any device orientation
-    result.range = fabs(result.minimum - result.maximum);
-    
+    result.range = fabs(result.maximum - result.minimum);
+
     stepResult.results = [self.addedResults arrayByAddingObject:result] ? : @[result];
     
     return stepResult;
