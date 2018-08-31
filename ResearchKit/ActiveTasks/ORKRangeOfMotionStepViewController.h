@@ -43,11 +43,9 @@ ORK_CLASS_AVAILABLE
 @interface ORKRangeOfMotionStepViewController : ORKActiveStepViewController {
     double _startAngle;
     double _rangeOfMotionAngle;
-    // ADDED these to avoid mutiple declarations
     double _highestAngle;
     double _lowestAngle;
     double _lastAngle;
-    // ADDED this to hold the min/max values
     double _minAngle;
     double _maxAngle;
 }
