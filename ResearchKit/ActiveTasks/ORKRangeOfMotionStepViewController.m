@@ -45,9 +45,7 @@
 
 #define radiansToDegrees(radians) ((radians) * 180.0 / M_PI)
 #define allOrientationsForPitch(x, w, y, z) (atan2(2.0 * (x*w + y*z), 1.0 - 2.0 * (x*x + z*z)))
-//Added definition for roll (y-axis rotation)
 #define allOrientationsForRoll(x, w, y, z) (atan2(2.0 * (y*w - x*z), 1.0 - 2.0 * (y*y + z*z)))
-//Added definition for yaw (z-axis rotation)
 #define allOrientationsForYaw(x, w, y, z) (asin(2.0 * (x*y - w*z)))
 
 
@@ -127,10 +125,8 @@
     UITapGestureRecognizer *_gestureRecognizer;
     CMAttitude *_referenceAttitude;
     UIInterfaceOrientation _orientation;
-    //double _highestAngle;
-    //double _lowestAngle;
-    //double _lastAngle;
 }
+
 @end
 
 
@@ -151,10 +147,8 @@
 }
 
 - (void)calculateAndSetAngles {
-// REPLACED  _startAngle = fabs([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     _startAngle = ([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     
-    //Changed this to two Boolean functions
     BOOL rangeOfMotionMoreThanPlus180Degrees = _highestAngle > 179;
     if (rangeOfMotionMoreThanPlus180Degrees) {
         _rangeOfMotionAngle = 360 - fabs(_lastAngle);
@@ -168,7 +162,6 @@
         _rangeOfMotionAngle = _lastAngle;
     }
     
-    // ADDED this to get the min/max values
     if (_rangeOfMotionAngle > _maxAngle) {
         _maxAngle = _rangeOfMotionAngle;
     }
@@ -197,7 +190,6 @@
     }
       _lastAngle = angle;
     
-    // ADDED this to calculate the min/max for every motion update
     [self calculateAndSetAngles];
 }
 
@@ -213,13 +205,11 @@
     }
     double angle;
     if (UIInterfaceOrientationIsLandscape(_orientation)) {
-        //  replaced:      angle = radiansToDegrees(attitude.roll);
         double x = attitude.quaternion.x;
         double w = attitude.quaternion.w;
         double y = attitude.quaternion.y;
         double z = attitude.quaternion.z;
         angle = radiansToDegrees(allOrientationsForRoll(x, w, y, z));
-        
     } else {
         double x = attitude.quaternion.x;
         double w = attitude.quaternion.w;
@@ -238,14 +228,11 @@
     
     ORKRangeOfMotionResult *result = [[ORKRangeOfMotionResult alloc] initWithIdentifier:self.step.identifier];
     
-    // replaced: result.flexed = _flexedAngle;
     result.start = 90.0 - _startAngle;
-    //replaced: result.extended = result.flexed - _rangeOfMotionAngle;
     result.finish = result.start - _rangeOfMotionAngle;
-    // ADDED this to expose the min/max angles in the result. Because the task uses pitch in the direction opposite to the device axis, they are the 'wrong' way around in the knee and shoulder tasks
+    //Because the task uses pitch in the direction opposite to the device axis, they are the 'wrong' way around in the knee and shoulder tasks
     result.minimum = result.start - _maxAngle;
     result.maximum = result.start - _minAngle;
-    //ADDED this to calculate the range of angle moved from maximum to minimum, in order to allow for any device orientation
     result.range = fabs(result.minimum - result.maximum);
     
     stepResult.results = [self.addedResults arrayByAddingObject:result] ? : @[result];
