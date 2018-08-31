@@ -34,7 +34,7 @@
 
 
 /**
- The `ORKSideBendingRangeOfMotionStep` class represents a step that takes a range of motion measurement for side (lateral) bending while standing and holding the device against the chest in either the left or right hand.
+ The `ORKSideBendingRangeOfMotionStep` class represents a step that takes a range of motion measurement for side (lateral) bending to the left or right side while standing, and holding the device against the chest in the opposite hand.
  */
 ORK_CLASS_AVAILABLE
 @interface ORKSideBendingRangeOfMotionStep : ORKRangeOfMotionStep
