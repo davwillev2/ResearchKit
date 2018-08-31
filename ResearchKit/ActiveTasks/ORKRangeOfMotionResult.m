@@ -41,7 +41,6 @@
     [super encodeWithCoder:aCoder];
     ORK_ENCODE_DOUBLE(aCoder, start);
     ORK_ENCODE_DOUBLE(aCoder, finish);
-    //Added minimum, maximum and range
     ORK_DECODE_DOUBLE(aCoder, minimum);
     ORK_DECODE_DOUBLE(aCoder, maximum);
     ORK_DECODE_DOUBLE(aCoder, range);
@@ -52,7 +51,6 @@
     if (self) {
         ORK_DECODE_DOUBLE(aDecoder, start);
         ORK_DECODE_DOUBLE(aDecoder, finish);
-        //Added minimum, maximum and range
         ORK_DECODE_DOUBLE(aDecoder, minimum);
         ORK_DECODE_DOUBLE(aDecoder, maximum);
         ORK_DECODE_DOUBLE(aDecoder, range);
@@ -84,7 +82,6 @@
     ORKRangeOfMotionResult *result = [super copyWithZone:zone];
     result.start = self.start;
     result.finish = self.finish;
-    //Added minimum, maximum and range
     result.minimum = self.minimum;
     result.maximum = self.maximum;
     result.range = self.range;
