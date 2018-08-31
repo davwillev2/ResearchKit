@@ -207,7 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- The forward bending range of motion task returns a task that measures the range of motion during standing forward bending while holding the device against the chest with either the left or right hand.
+ The forward bending range of motion task returns a task that measures the range of motion during standing forward bending, while holding the device against the chest with either the left or right hand.
  
  @param identifier              The task identifier to use for this task, appropriate to the study.
  @param limbOption              With which hand the device is being held during the task.
@@ -221,7 +221,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- The trunk rotation range of motion task returns a task that measures the range of motion during seated trunk rotation (twisting) while holding the device against the chest with both hands.
+ The trunk rotation range of motion task returns a task that measures the range of motion during seated trunk rotation (twisting) to the left or right, while holding the device against the chest with both hands.
  
  @param identifier              The task identifier to use for this task, appropriate to the study.
  @param limbOption              In which direction the trunk is being rotated during the task.
@@ -235,7 +235,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- The side bending range of motion task returns a task that measures the range of motion during standing side (lateral) bending while holding the device against the chest with the left or right hand.
+ The side bending range of motion task returns a task that measures the range of motion during standing side (lateral) bending to the left or right side, while holding the device against the chest with the opposite hand.
  
  @param identifier              The task identifier to use for this task, appropriate to the study.
  @param limbOption              Towards which side the trunk is being bent during the task.
