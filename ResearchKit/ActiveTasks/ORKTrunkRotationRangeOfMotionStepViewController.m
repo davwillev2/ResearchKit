@@ -37,20 +37,15 @@
 #import "ORKStepViewController_Internal.h"
 
 #import "ORKCustomStepView_Internal.h"
-//#import "ORKHelpers_Internal.h"
 #import "ORKActiveStepViewController_Internal.h"
-//#import "ORKVerticalContainerView_Internal.h"
 #import "ORKDeviceMotionRecorder.h"
 #import "ORKActiveStepView.h"
 #import "ORKProgressView.h"
-//#import "ORKSkin.h"
 
 
 #define radiansToDegrees(radians) ((radians) * 180.0 / M_PI)
 #define allOrientationsForPitch(x, w, y, z) (atan2(2.0 * (x*w + y*z), 1.0 - 2.0 * (x*x + z*z)))
-//Added definition for roll (y-axis rotation)
 #define allOrientationsForRoll(x, w, y, z) (atan2(2.0 * (y*w - x*z), 1.0 - 2.0 * (y*y + z*z)))
-//Added definition for yaw (z-axis rotation)
 #define allOrientationsForYaw(x, w, y, z) (asin(2.0 * (x*y - w*z)))
 
 @interface ORKRangeOfMotionContentView : ORKActiveStepCustomView {
@@ -67,9 +62,6 @@
     UITapGestureRecognizer *_gestureRecognizer;
     CMAttitude *_referenceAttitude;
     UIInterfaceOrientation _orientation;
-    //double _highestAngle;
-    //double _lowestAngle;
-    //double _lastAngle;
 }
 
 @end
@@ -92,10 +84,8 @@
 }
 
 - (void)calculateAndSetAngles {
-    // REPLACED  _startAngle = fabs([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     _startAngle = ([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     
-    //Changed this to two Boolean functions
     BOOL rangeOfMotionMoreThanPlus180Degrees = _highestAngle > 179;
     if (rangeOfMotionMoreThanPlus180Degrees) {
         _rangeOfMotionAngle = 360 - fabs(_lastAngle);
@@ -130,7 +120,6 @@
     }
     _lastAngle = angle;
     
-    // ADDED this to calculate the min/max for every motion update
     [self calculateAndSetAngles];
 }
 
@@ -172,7 +161,6 @@
     ORKRangeOfMotionResult *result = [[ORKRangeOfMotionResult alloc] initWithIdentifier:self.step.identifier];
     result.start = _startAngle;
     result.finish = _rangeOfMotionAngle + result.start;
-    // ADDED this to expose the min/max angles in the result
     result.minimum = result.start + _minAngle;
     result.maximum = result.start + _maxAngle;
     result.range = fabs(result.maximum - result.minimum);
