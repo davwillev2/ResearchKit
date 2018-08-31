@@ -1286,10 +1286,10 @@ NSString *const ORKForwardBendingRangeOfMotionStepIdentifier = @"forward.bending
     
     ORKDeviceMotionRecorderConfiguration *deviceMotionRecorderConfig = [[ORKDeviceMotionRecorderConfiguration alloc] initWithIdentifier:ORKDeviceMotionRecorderIdentifier frequency:100];
     
-    ORKRangeOfMotionStep *forwardBendingRangeOfMotionStep = [[ORKRangeOfMotionStep alloc] initWithIdentifier:ORKForwardBendingRangeOfMotionStepIdentifier limbOption:limbOption];
+    ORKForwardBendingRangeOfMotionStep *forwardBendingRangeOfMotionStep = [[ORKForwardBendingRangeOfMotionStep alloc] initWithIdentifier:ORKForwardBendingRangeOfMotionStepIdentifier limbOption:limbOption];
     forwardBendingRangeOfMotionStep.title = ORKLocalizedString(@"RANGE_OF_MOTION_TITLE", nil);
-    forwardBendingRangeOfMotionStep.text = ([limbType isEqualToString: ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"FORWARD_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT", nil) :
-        ORKLocalizedString(@"FORWARD_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT", nil);
+    forwardBendingRangeOfMotionStep.text = ([limbType isEqualToString: ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"FORWARD_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT", nil) :
+    ORKLocalizedString(@"FORWARD_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT", nil);
     
     forwardBendingRangeOfMotionStep.spokenInstruction = forwardBendingRangeOfMotionStep.title;
     forwardBendingRangeOfMotionStep.recorderConfigurations = @[deviceMotionRecorderConfig];
@@ -1379,9 +1379,9 @@ NSString *const ORKTrunkRotationRangeOfMotionStepIdentifier = @"trunk.rotation.r
     
     ORKDeviceMotionRecorderConfiguration *deviceMotionRecorderConfig = [[ORKDeviceMotionRecorderConfiguration alloc] initWithIdentifier:ORKDeviceMotionRecorderIdentifier frequency:100];
     
-    ORKRangeOfMotionStep *trunkRotationRangeOfMotionStep = [[ORKRangeOfMotionStep alloc] initWithIdentifier:ORKTrunkRotationRangeOfMotionStepIdentifier limbOption:limbOption];
+    ORKTrunkRotationRangeOfMotionStep *trunkRotationRangeOfMotionStep = [[ORKTrunkRotationRangeOfMotionStep alloc] initWithIdentifier:ORKTrunkRotationRangeOfMotionStepIdentifier limbOption:limbOption];
     trunkRotationRangeOfMotionStep.title = ORKLocalizedString(@"RANGE_OF_MOTION_TITLE", nil);
-    trunkRotationRangeOfMotionStep.text = ([limbType isEqualToString: ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"TRUNK_ROTATION_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT", nil) :
+    trunkRotationRangeOfMotionStep.text = ([limbType isEqualToString: ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"TRUNK_ROTATION_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT", nil) :
     ORKLocalizedString(@"TRUNK_ROTATION_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT", nil);
     
     trunkRotationRangeOfMotionStep.spokenInstruction = trunkRotationRangeOfMotionStep.title;
@@ -1472,9 +1472,9 @@ NSString *const ORKSideBendingRangeOfMotionStepIdentifier = @"side.bending.range
     
     ORKDeviceMotionRecorderConfiguration *deviceMotionRecorderConfig = [[ORKDeviceMotionRecorderConfiguration alloc] initWithIdentifier:ORKDeviceMotionRecorderIdentifier frequency:100];
     
-    ORKRangeOfMotionStep *sideBendingRangeOfMotionStep = [[ORKRangeOfMotionStep alloc] initWithIdentifier:ORKSideBendingRangeOfMotionStepIdentifier limbOption:limbOption];
+    ORKSideBendingRangeOfMotionStep *sideBendingRangeOfMotionStep = [[ORKSideBendingRangeOfMotionStep alloc] initWithIdentifier:ORKSideBendingRangeOfMotionStepIdentifier limbOption:limbOption];
     sideBendingRangeOfMotionStep.title = ORKLocalizedString(@"RANGE_OF_MOTION_TITLE", nil);
-    sideBendingRangeOfMotionStep.text = ([limbType isEqualToString: ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"SIDE_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT", nil) :
+    sideBendingRangeOfMotionStep.text = ([limbType isEqualToString: ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"SIDE_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT", nil) :
     ORKLocalizedString(@"SIDE_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT", nil);
     
     sideBendingRangeOfMotionStep.spokenInstruction = sideBendingRangeOfMotionStep.title;
