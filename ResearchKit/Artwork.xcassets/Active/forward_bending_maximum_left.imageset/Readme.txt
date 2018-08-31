@@ -1,0 +1,1 @@
+Note: like the shoulder task, the flexed and extended positions are not true to the anatomical definitions; they are in fact, opposite. Therefore, the flexed back position should be the upright position, and the extended back position should be the bent forward position.
