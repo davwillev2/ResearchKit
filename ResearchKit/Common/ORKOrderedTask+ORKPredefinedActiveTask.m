@@ -65,7 +65,7 @@
 #import "ORKTappingIntervalStep.h"
 #import "ORKTimedWalkStep.h"
 #import "ORKToneAudiometryStep.h"
-//#import "ORKToneAudiometryPracticeStep.h"
+#import "ORKToneAudiometryPracticeStep.h"
 #import "ORKTowerOfHanoiStep.h"
 #import "ORKTrailmakingStep.h"
 #import "ORKVisualConsentStep.h"
