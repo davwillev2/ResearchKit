@@ -68,7 +68,6 @@
     return isParentSame &&
     self.start == castObject.start &&
     self.finish == castObject.finish &&
-    //Added minimum and maximum
     self.minimum == castObject.minimum &&
     self.maximum == castObject.maximum &&
     self.range == castObject.range;
