@@ -65,7 +65,7 @@
 #import "ORKTappingIntervalStep.h"
 #import "ORKTimedWalkStep.h"
 #import "ORKToneAudiometryStep.h"
-#import "ORKToneAudiometryPracticeStep.h"
+//#import "ORKToneAudiometryPracticeStep.h"
 #import "ORKTowerOfHanoiStep.h"
 #import "ORKTrailmakingStep.h"
 #import "ORKVisualConsentStep.h"
@@ -949,7 +949,7 @@ NSString *const ORKKneeRangeOfMotionStepIdentifier = @"knee.range.of.motion";
     NSString *limbType = ORKLocalizedString(@"LIMB_RIGHT", nil);
     UIImage *kneeStartImage = [UIImage imageNamed:@"knee_start_right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     UIImage *kneeMaximumImage = [UIImage imageNamed:@"knee_maximum_right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-    //Added new image definition
+
     UIImage *phoneSoundWavesInvertedImage = [UIImage imageNamed:@"phonesoundwaves_inverted" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     
     if (limbOption == ORKPredefinedTaskLimbOptionLeft) {
@@ -957,7 +957,7 @@ NSString *const ORKKneeRangeOfMotionStepIdentifier = @"knee.range.of.motion";
         
         kneeStartImage = [UIImage imageNamed:@"knee_start_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
         kneeMaximumImage = [UIImage imageNamed:@"knee_maximum_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-        //Added new image definition
+
         phoneSoundWavesInvertedImage = [UIImage imageNamed:@"phonesoundwaves_inverted" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     }
     
@@ -973,7 +973,7 @@ NSString *const ORKKneeRangeOfMotionStepIdentifier = @"knee.range.of.motion";
         instructionStep1.title = ([limbType isEqualToString:ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"KNEE_RANGE_OF_MOTION_TITLE_LEFT", nil) : ORKLocalizedString(@"KNEE_RANGE_OF_MOTION_TITLE_RIGHT", nil);
         
         instructionStep1.detailText = ([limbType isEqualToString:ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"KNEE_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT", nil) : ORKLocalizedString(@"KNEE_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT", nil);
-        //Added new image to this step
+
         instructionStep1.image = phoneSoundWavesInvertedImage;
         instructionStep1.shouldTintImages = YES;
         ORKStepArrayAddStep(steps, instructionStep1);
@@ -998,7 +998,6 @@ NSString *const ORKKneeRangeOfMotionStepIdentifier = @"knee.range.of.motion";
     ORKTouchAnywhereStep *touchAnywhereStep = [[ORKTouchAnywhereStep alloc] initWithIdentifier:ORKTouchAnywhereStepIdentifier instructionText:instructionText];
     ORKStepArrayAddStep(steps, touchAnywhereStep);
     
-    //Added spoken instructions to this step
     touchAnywhereStep.spokenInstruction = touchAnywhereStep.title;
     
     ORKDeviceMotionRecorderConfiguration *deviceMotionRecorderConfig = [[ORKDeviceMotionRecorderConfiguration alloc] initWithIdentifier:ORKDeviceMotionRecorderIdentifier frequency:100];
@@ -1035,14 +1034,14 @@ NSString *const ORKShoulderRangeOfMotionStepIdentifier = @"shoulder.range.of.mot
     NSString *limbType = ORKLocalizedString(@"LIMB_RIGHT", nil);
     UIImage *shoulderStartImage = [UIImage imageNamed:@"shoulder_start_right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     UIImage *shoulderMaximumImage = [UIImage imageNamed:@"shoulder_maximum_right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-    //Added new image definition
+
     UIImage *phoneSoundWavesInvertedImage = [UIImage imageNamed:@"phonesoundwaves_inverted" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     
     if (limbOption == ORKPredefinedTaskLimbOptionLeft) {
         limbType = ORKLocalizedString(@"LIMB_LEFT", nil);
         shoulderStartImage = [UIImage imageNamed:@"shoulder_start_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
         shoulderMaximumImage = [UIImage imageNamed:@"shoulder_maximum_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-        //Added new image definition
+
         phoneSoundWavesInvertedImage = [UIImage imageNamed:@"phonesoundwaves_inverted" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     }
     
@@ -1058,7 +1057,7 @@ NSString *const ORKShoulderRangeOfMotionStepIdentifier = @"shoulder.range.of.mot
         instructionStep1.title = ([limbType isEqualToString:ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"SHOULDER_RANGE_OF_MOTION_TITLE_LEFT", nil) : ORKLocalizedString(@"SHOULDER_RANGE_OF_MOTION_TITLE_RIGHT", nil);
         
         instructionStep1.detailText = ([limbType isEqualToString:ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"SHOULDER_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT", nil) : ORKLocalizedString(@"SHOULDER_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT", nil);
-        //Added new image to this step
+
         instructionStep1.image = phoneSoundWavesInvertedImage;
         instructionStep1.shouldTintImages = YES;
         ORKStepArrayAddStep(steps, instructionStep1);
@@ -1084,7 +1083,6 @@ NSString *const ORKShoulderRangeOfMotionStepIdentifier = @"shoulder.range.of.mot
     ORKTouchAnywhereStep *touchAnywhereStep = [[ORKTouchAnywhereStep alloc] initWithIdentifier:ORKTouchAnywhereStepIdentifier instructionText:instructionText];
     ORKStepArrayAddStep(steps, touchAnywhereStep);
     
-    //Added spoken instructions to this step
     touchAnywhereStep.spokenInstruction = touchAnywhereStep.title;
     
     ORKDeviceMotionRecorderConfiguration *deviceMotionRecorderConfig = [[ORKDeviceMotionRecorderConfiguration alloc] initWithIdentifier:ORKDeviceMotionRecorderIdentifier frequency:100];
@@ -1122,14 +1120,14 @@ NSString *const ORKForwardBendingRangeOfMotionStepIdentifier = @"forward.bending
     NSString *limbType = ORKLocalizedString(@"LIMB_RIGHT", nil);
     UIImage *forwardBendingStartImage = [UIImage imageNamed:@"forward_bending_start_right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     UIImage *forwardBendingMaximumImage = [UIImage imageNamed:@"forward_bending_maximum_right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-    //added new image definition
+
     UIImage *phoneSoundWavesInvertedImage = [UIImage imageNamed:@"phonesoundwaves_inverted" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     
     if (limbOption == ORKPredefinedTaskLimbOptionLeft) {
         limbType = ORKLocalizedString(@"LIMB_LEFT", nil);
         forwardBendingStartImage = [UIImage imageNamed:@"forward_bending_start_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
         forwardBendingMaximumImage = [UIImage imageNamed:@"forward_bending_maximum_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-        //added new image definition
+
         phoneSoundWavesInvertedImage = [UIImage imageNamed:@"phonesoundwaves_inverted" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     }
     
@@ -1172,7 +1170,6 @@ NSString *const ORKForwardBendingRangeOfMotionStepIdentifier = @"forward.bending
     ORKTouchAnywhereStep *touchAnywhereStep = [[ORKTouchAnywhereStep alloc] initWithIdentifier:ORKTouchAnywhereStepIdentifier instructionText:instructionText];
     ORKStepArrayAddStep(steps, touchAnywhereStep);
     
-    //Added spoken instructions to this step
     touchAnywhereStep.spokenInstruction = touchAnywhereStep.title;
     
     ORKDeviceMotionRecorderConfiguration *deviceMotionRecorderConfig = [[ORKDeviceMotionRecorderConfiguration alloc] initWithIdentifier:ORKDeviceMotionRecorderIdentifier frequency:100];
@@ -1217,7 +1214,7 @@ NSString *const ORKTrunkRotationRangeOfMotionStepIdentifier = @"trunk.rotation.r
         limbType = ORKLocalizedString(@"LIMB_LEFT", nil);
         trunkRotationStartImage = [UIImage imageNamed:@"trunk_rotation_start_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
         trunkRotationMaximumImage = [UIImage imageNamed:@"trunk_rotation_maximum_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-        //Added image definition
+
         phoneSoundWavesInvertedImage = [UIImage imageNamed:@"phonesoundwaves_inverted" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     }
     
@@ -1234,7 +1231,7 @@ NSString *const ORKTrunkRotationRangeOfMotionStepIdentifier = @"trunk.rotation.r
         
         instructionStep1.detailText = ([limbType isEqualToString:ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT", nil) : ORKLocalizedString(@"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT", nil);
         ORKStepArrayAddStep(steps, instructionStep1);
-        //Added image to this step
+
         instructionStep1.image = phoneSoundWavesInvertedImage;
         instructionStep1.shouldTintImages = YES;
         ORKStepArrayAddStep(steps, instructionStep1);
@@ -1260,7 +1257,6 @@ NSString *const ORKTrunkRotationRangeOfMotionStepIdentifier = @"trunk.rotation.r
     ORKTouchAnywhereStep *touchAnywhereStep = [[ORKTouchAnywhereStep alloc] initWithIdentifier:ORKTouchAnywhereStepIdentifier instructionText:instructionText];
     ORKStepArrayAddStep(steps, touchAnywhereStep);
     
-    //Added spoken instructions to this step
     touchAnywhereStep.spokenInstruction = touchAnywhereStep.title;
     
     ORKDeviceMotionRecorderConfiguration *deviceMotionRecorderConfig = [[ORKDeviceMotionRecorderConfiguration alloc] initWithIdentifier:ORKDeviceMotionRecorderIdentifier frequency:100];
@@ -1298,14 +1294,14 @@ NSString *const ORKSideBendingRangeOfMotionStepIdentifier = @"side.bending.range
     NSString *limbType = ORKLocalizedString(@"LIMB_RIGHT", nil);
     UIImage *sideBendingStartImage = [UIImage imageNamed:@"side_bending_start_right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     UIImage *sideBendingMaximumImage = [UIImage imageNamed:@"side_bending_maximum_right" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-    //Added image definition
+
     UIImage *phoneSoundWavesInvertedImage = [UIImage imageNamed:@"phonesoundwaves_inverted" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     
     if (limbOption == ORKPredefinedTaskLimbOptionLeft) {
         limbType = ORKLocalizedString(@"LIMB_LEFT", nil);
         sideBendingStartImage = [UIImage imageNamed:@"side_bending_start_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
         sideBendingMaximumImage = [UIImage imageNamed:@"side_bending_maximum_left" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
-        //Added image definition
+
         phoneSoundWavesInvertedImage = [UIImage imageNamed:@"phonesoundwaves_inverted" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
     }
     
@@ -1322,7 +1318,7 @@ NSString *const ORKSideBendingRangeOfMotionStepIdentifier = @"side.bending.range
         
         instructionStep1.detailText = ([limbType isEqualToString:ORKLocalizedString(@"LIMB_LEFT", nil)])? ORKLocalizedString(@"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT", nil) : ORKLocalizedString(@"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT", nil);
         ORKStepArrayAddStep(steps, instructionStep1);
-        //Added image to this step
+
         instructionStep1.image = phoneSoundWavesInvertedImage;
         instructionStep1.shouldTintImages = YES;
         ORKStepArrayAddStep(steps, instructionStep1);
@@ -1348,7 +1344,6 @@ NSString *const ORKSideBendingRangeOfMotionStepIdentifier = @"side.bending.range
     ORKTouchAnywhereStep *touchAnywhereStep = [[ORKTouchAnywhereStep alloc] initWithIdentifier:ORKTouchAnywhereStepIdentifier instructionText:instructionText];
     ORKStepArrayAddStep(steps, touchAnywhereStep);
     
-    //Added spoken instructions to this step
     touchAnywhereStep.spokenInstruction = touchAnywhereStep.title;
     
     ORKDeviceMotionRecorderConfiguration *deviceMotionRecorderConfig = [[ORKDeviceMotionRecorderConfiguration alloc] initWithIdentifier:ORKDeviceMotionRecorderIdentifier frequency:100];
@@ -2438,7 +2433,7 @@ NSString *const ORKTremorTestTurnWristStepIdentifier = @"tremor.handQueenWave";
 
         ORKAnswerFormat *answerFormat = [ORKAnswerFormat choiceAnswerFormatWithStyle:ORKChoiceAnswerStyleSingleChoice
                                                                          textChoices:@[skipRight, skipLeft, skipNeither]];
-        ORKQuestionStep *step = [ORKQuestionStep questionStepWithIdentifier:ORKActiveTaskSkipHandStepIdentifier
+       ORKQuestionStep *step = [ORKQuestionStep questionStepWithIdentifier:ORKActiveTaskSkipHandStepIdentifier
                                                                       title:ORKLocalizedString(@"TREMOR_TEST_TITLE", nil)
                                                                        text:detailText
                                                                      answer:answerFormat];
