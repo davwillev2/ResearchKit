@@ -61,9 +61,6 @@
     UITapGestureRecognizer *_gestureRecognizer;
     CMAttitude *_referenceAttitude;
     UIInterfaceOrientation _orientation;
-    //double _highestAngle;
-    //double _lowestAngle;
-    //double _lastAngle;
 }
 
 @end
@@ -86,10 +83,8 @@
 }
 
 - (void)calculateAndSetAngles {
-    // REPLACED  _startAngle = fabs([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     _startAngle = ([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     
-    //Changed this to two Boolean functions
     BOOL rangeOfMotionMoreThanPlus180Degrees = _highestAngle > 178.5 || _highestAngle > 179;
     if (rangeOfMotionMoreThanPlus180Degrees) {
         _rangeOfMotionAngle = 360 - fabs(_lastAngle);
@@ -102,7 +97,7 @@
     } else {
         _rangeOfMotionAngle = _lastAngle;
     }
-    // ADDED this to get the min/max values
+
     if (_rangeOfMotionAngle > _maxAngle) {
         _maxAngle = _rangeOfMotionAngle;
     }
@@ -119,7 +114,6 @@
     }
     CMAttitude *currentAttitude = [motion.attitude copy];
     
-    //Replaced: [currentAttitude multiplyByInverseOfAttitude:_referenceAttitude];
     [(currentAttitude)multiplyByInverseOfAttitude:(CMAttitude *)_referenceAttitude];
     
     double angle = [self getDeviceAngleInDegreesFromAttitude:currentAttitude];
@@ -132,7 +126,6 @@
     }
     _lastAngle = angle;
     
-    // ADDED this to calculate the min/max for every motion update
     [self calculateAndSetAngles];
 }
 
@@ -173,10 +166,8 @@
     
     result.start = _startAngle;
     result.finish = _rangeOfMotionAngle + result.start;
-    // ADDED this to expose the min/max angles in the result. Because the task uses pitch in the direction opposite to the device axis, they are the 'wrong' way around in the knee and shoulder tasks
     result.minimum = result.start + _minAngle;
     result.maximum = result.start + _maxAngle;
-    //ADDED this to calculate the range of angle moved from maximum to minimum, in order to allow for any device orientation
     result.range = fabs(result.maximum - result.minimum);
 
     stepResult.results = [self.addedResults arrayByAddingObject:result] ? : @[result];
