@@ -63,7 +63,7 @@ ORK_CLASS_AVAILABLE
 @property (nonatomic, assign) double maximum;
 
 /**
- The angle (degrees) passed through from the start position to the maximum angle (e.g. from when the knee is flexed to when it is extended).
+ The angle (degrees) passed through between the minimum and maximum angles (e.g. from when the knee is flexed to when it is extended).
  */
 @property (nonatomic, assign) double range;
 
