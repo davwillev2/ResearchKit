@@ -35,9 +35,114 @@
 #import "ORKRangeOfMotionResult.h"
 #import "ORKStepViewController_Internal.h"
 
+#import "ORKCustomStepView_Internal.h"
+#import "ORKActiveStepViewController_Internal.h"
+#import "ORKDeviceMotionRecorder.h"
+#import "ORKActiveStepView.h"
+#import "ORKProgressView.h"
+
+
+#define radiansToDegrees(radians) ((radians) * 180.0 / M_PI)
+#define allOrientationsForPitch(x, w, y, z) (atan2(2.0 * (x*w + y*z), 1.0 - 2.0 * (x*x + z*z)))
+#define allOrientationsForRoll(x, w, y, z) (atan2(2.0 * (y*w - x*z), 1.0 - 2.0 * (y*y + z*z)))
+#define allOrientationsForYaw(x, w, y, z) (asin(2.0 * (x*y - w*z)))
+
+@interface ORKRangeOfMotionContentView : ORKActiveStepCustomView {
+    NSLayoutConstraint *_topConstraint;
+}
+
+@property (nonatomic, strong, readonly) ORKProgressView *progressView;
+
+@end
+
+
+@interface ORKForwardBendingRangeOfMotionStepViewController () <ORKDeviceMotionRecorderDelegate> {
+    ORKRangeOfMotionContentView *_contentView;
+    UITapGestureRecognizer *_gestureRecognizer;
+    CMAttitude *_referenceAttitude;
+    UIInterfaceOrientation _orientation;
+}
+
+@end
 
 
 @implementation ORKForwardBendingRangeOfMotionStepViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _contentView = [ORKRangeOfMotionContentView new];
+    _contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.activeStepView.activeCustomView = _contentView;
+    _gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [self.activeStepView addGestureRecognizer:_gestureRecognizer];
+}
+//This function records the angle of the device when the screen is tapped
+- (void)handleTap:(UIGestureRecognizer *)sender {
+    [self calculateAndSetAngles];
+    [self finish];
+}
+
+- (void)calculateAndSetAngles {
+    _startAngle = ([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
+    
+    //This function calculates maximum and minimum angles recorded by the device
+    if (_newAngle > _maxAngle) {
+        _maxAngle = _newAngle;
+    }
+    if (_minAngle == 0.0 || _newAngle < _minAngle) {
+        _minAngle = _newAngle;
+    }
+}
+
+#pragma mark - ORKDeviceMotionRecorderDelegate
+
+- (void)deviceMotionRecorderDidUpdateWithMotion:(CMDeviceMotion *)motion {
+    if (!_referenceAttitude) {
+        _referenceAttitude = motion.attitude;
+    }
+    CMAttitude *currentAttitude = [motion.attitude copy];
+    
+    [currentAttitude multiplyByInverseOfAttitude:_referenceAttitude];
+    
+    double angle = [self getDeviceAngleInDegreesFromAttitude:currentAttitude];
+    
+    //This function shifts the range of angles reported by the device from +/-180 degrees to -90 to +270 degrees, which should be sufficient to cover all ahievable knee and shoulder ranges of motion
+    BOOL shiftAngleRange = angle < -90 && angle >= 180;
+    if (shiftAngleRange) {
+        _newAngle = 360 - fabs(angle);
+    } else {
+        _newAngle = angle;
+    }
+    
+    [self calculateAndSetAngles];
+}
+
+/*
+ When the device is in Portrait mode, we need to get the attitude's pitch
+ to determine the device's angle. attitude.pitch doesn't return all
+ orientations, so we use the attitude's quaternion to calculate the
+ angle.
+ */
+- (double)getDeviceAngleInDegreesFromAttitude:(CMAttitude *)attitude {
+    if (!_orientation) {
+        _orientation = [UIApplication sharedApplication].statusBarOrientation;
+    }
+    double angle;
+    if (UIInterfaceOrientationIsLandscape(_orientation)) {
+        double x = attitude.quaternion.x;
+        double w = attitude.quaternion.w;
+        double y = attitude.quaternion.y;
+        double z = attitude.quaternion.z;
+        angle = radiansToDegrees(allOrientationsForRoll(x, w, y, z));
+    } else {
+        double x = attitude.quaternion.x;
+        double w = attitude.quaternion.w;
+        double y = attitude.quaternion.y;
+        double z = attitude.quaternion.z;
+        angle = radiansToDegrees(allOrientationsForPitch(x, w, y, z));
+    }
+    return angle;
+}
 
 #pragma mark - ORKActiveTaskViewController
 
@@ -46,7 +151,7 @@
     
     ORKRangeOfMotionResult *result = [[ORKRangeOfMotionResult alloc] initWithIdentifier:self.step.identifier];
     result.start = _startAngle - 90.0;
-    result.finish = _rangeOfMotionAngle - result.start;
+    result.finish = _newAngle - result.start;
     result.minimum = _minAngle - result.start;
     result.maximum = _maxAngle - result.start;
     result.range = fabs(result.maximum - result.minimum);

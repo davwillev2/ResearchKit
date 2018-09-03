@@ -44,7 +44,8 @@
     
     ORKRangeOfMotionResult *result = [[ORKRangeOfMotionResult alloc] initWithIdentifier:self.step.identifier];
     result.start = 90.0 - _startAngle;
-    result.finish = _rangeOfMotionAngle - result.start;
+    result.finish = result.start - _newAngle;
+    //Because the task uses pitch in the direction opposite to the original CoreMotion device axes (i.e. right hand rule), maximum and minimum angles are reported the 'wrong' way around for the knee and shoulder tasks
     result.minimum = result.start - _maxAngle;
     result.maximum = result.start - _minAngle;
     result.range = fabs(result.maximum - result.minimum);

@@ -140,7 +140,7 @@
     _gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.activeStepView addGestureRecognizer:_gestureRecognizer];
 }
-
+    //This function records the angle of the device when the screen is tapped
 - (void)handleTap:(UIGestureRecognizer *)sender {
     [self calculateAndSetAngles];
     [self finish];
@@ -149,24 +149,12 @@
 - (void)calculateAndSetAngles {
     _startAngle = ([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     
-    BOOL rangeOfMotionMoreThanPlus180Degrees = _highestAngle > 179;
-    if (rangeOfMotionMoreThanPlus180Degrees) {
-        _rangeOfMotionAngle = 360 - fabs(_lastAngle);
-    } else {
-        _rangeOfMotionAngle = _lastAngle;
+    //This function calculates maximum and minimum angles recorded by the device
+    if (_newAngle > _maxAngle) {
+        _maxAngle = _newAngle;
     }
-    BOOL rangeOfMotionLessThanMinus180Degrees = _lowestAngle < -179;
-    if (rangeOfMotionLessThanMinus180Degrees) {
-        _rangeOfMotionAngle = fabs(_lastAngle) - 360;
-    } else {
-        _rangeOfMotionAngle = _lastAngle;
-    }
-    
-    if (_rangeOfMotionAngle > _maxAngle) {
-        _maxAngle = _rangeOfMotionAngle;
-    }
-    if (_minAngle == 0.0 || _rangeOfMotionAngle < _minAngle) {
-        _minAngle = _rangeOfMotionAngle;
+    if (_minAngle == 0.0 || _newAngle < _minAngle) {
+        _minAngle = _newAngle;
     }
 }
 
@@ -182,13 +170,13 @@
     
     double angle = [self getDeviceAngleInDegreesFromAttitude:currentAttitude];
 
-   if (angle > _highestAngle) {
-        _highestAngle = angle;
+    //This function shifts the range of angles reported by the device from +/-180 degrees to -90 to +270 degrees, which should be sufficient to cover all ahievable knee and shoulder ranges of motion
+    BOOL shiftAngleRange = angle > 90 && angle <= 180;
+    if (shiftAngleRange) {
+        _newAngle = fabs(angle) - 360;
+    } else {
+        _newAngle = angle;
     }
-    if (angle < _lowestAngle) {
-        _lowestAngle = angle;
-    }
-      _lastAngle = angle;
     
     [self calculateAndSetAngles];
 }
@@ -229,11 +217,11 @@
     ORKRangeOfMotionResult *result = [[ORKRangeOfMotionResult alloc] initWithIdentifier:self.step.identifier];
     
     result.start = 90.0 - _startAngle;
-    result.finish = result.start - _rangeOfMotionAngle;
-    //Because the task uses pitch in the direction opposite to the device axis, they are the 'wrong' way around in the knee and shoulder tasks
+    result.finish = result.start - _newAngle;
+    //Because the task uses pitch in the direction opposite to the original CoreMotion device axes (i.e. right hand rule), maximum and minimum angles are reported the 'wrong' way around for the knee and shoulder tasks
     result.minimum = result.start - _maxAngle;
     result.maximum = result.start - _minAngle;
-    result.range = fabs(result.minimum - result.maximum);
+    result.range = fabs(result.maximum - result.minimum);
     
     stepResult.results = [self.addedResults arrayByAddingObject:result] ? : @[result];
     

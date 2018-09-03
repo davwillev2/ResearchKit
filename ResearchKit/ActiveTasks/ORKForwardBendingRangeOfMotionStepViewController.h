@@ -34,7 +34,7 @@
 
 
 /**
- This class overrides its parent's result because here a start result of 0 degrees would mean the device is at a 90 degree angle. Furthermore, device rotation during forward bending is the opposite to that during knee or shoulder rotation.
+ This class overrides its parent's result because here a start result of 0 degrees would mean the device is at a 90 degree angle. Furthermore, device rotation during forward bending is the opposite to that during the knee and shoulder range of motion tasks.
  */
 ORK_CLASS_AVAILABLE
 @interface ORKForwardBendingRangeOfMotionStepViewController : ORKRangeOfMotionStepViewController

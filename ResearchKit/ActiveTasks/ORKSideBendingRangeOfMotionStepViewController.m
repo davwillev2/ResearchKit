@@ -76,7 +76,7 @@
     _gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.activeStepView addGestureRecognizer:_gestureRecognizer];
 }
-
+    //This function records the angle of the device when the screen is tapped
 - (void)handleTap:(UIGestureRecognizer *)sender {
     [self calculateAndSetAngles];
     [self finish];
@@ -85,24 +85,12 @@
 - (void)calculateAndSetAngles {
     _startAngle = ([self getDeviceAngleInDegreesFromAttitude:_referenceAttitude]);
     
-    BOOL rangeOfMotionMoreThanPlus180Degrees = _highestAngle > 178.5 || _highestAngle > 179;
-    if (rangeOfMotionMoreThanPlus180Degrees) {
-        _rangeOfMotionAngle = 360 - fabs(_lastAngle);
-    } else {
-        _rangeOfMotionAngle = _lastAngle;
+    //This function calculates maximum and minimum angles recorded by the device
+    if (_newAngle > _maxAngle) {
+        _maxAngle = _newAngle;
     }
-    BOOL rangeOfMotionLessThanMinus180Degrees = _lowestAngle < -178.5 || _lowestAngle < -179;
-    if (rangeOfMotionLessThanMinus180Degrees) {
-        _rangeOfMotionAngle = fabs(_lastAngle) - 360;
-    } else {
-        _rangeOfMotionAngle = _lastAngle;
-    }
-
-    if (_rangeOfMotionAngle > _maxAngle) {
-        _maxAngle = _rangeOfMotionAngle;
-    }
-    if (_minAngle == 0.0 || _rangeOfMotionAngle < _minAngle) {
-        _minAngle = _rangeOfMotionAngle;
+    if (_minAngle == 0.0 || _newAngle < _minAngle) {
+        _minAngle = _newAngle;
     }
 }
 
@@ -118,13 +106,7 @@
     
     double angle = [self getDeviceAngleInDegreesFromAttitude:currentAttitude];
     
-    if (angle > _highestAngle) {
-        _highestAngle = angle;
-    }
-    if (angle < _lowestAngle) {
-        _lowestAngle = angle;
-    }
-    _lastAngle = angle;
+    _newAngle = angle;
     
     [self calculateAndSetAngles];
 }
@@ -163,9 +145,8 @@
     ORKStepResult *stepResult = [super result];
     
     ORKRangeOfMotionResult *result = [[ORKRangeOfMotionResult alloc] initWithIdentifier:self.step.identifier];
-    
     result.start = _startAngle;
-    result.finish = _rangeOfMotionAngle + result.start;
+    result.finish = result.start + _newAngle;
     result.minimum = result.start + _minAngle;
     result.maximum = result.start + _maxAngle;
     result.range = fabs(result.maximum - result.minimum);
