@@ -421,50 +421,98 @@
 /* Forward Bending Range of Motion active task */
 "FORWARD_BENDING_RANGE_OF_MOTION_TITLE_LEFT" = "Forward Bending Range of Motion";
 "FORWARD_BENDING_RANGE_OF_MOTION_TITLE_RIGHT" = "Forward Bending Range of Motion";
-"FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_LEFT" = "This activity measures how far you can bend forwards while standing, without bending your knees";
-"FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_RIGHT" = "This activity measures how far you can bend forwards while standing, without bending your knees";
+"FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_LEFT" = "This task measures how far you can bend forwards while standing, without bending your knees";
+"FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_RIGHT" = "This task measures how far you can bend forwards while standing, without bending your knees";
 "FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions.";
 "FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions.";
-"FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_LEFT" = "Stand up with your feet shoulder-width apart and your device in your left hand. Hold your device upright against your chest, with the screen facing out, as pictured.";
-"FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_RIGHT" = "Stand up with your feet shoulder-width apart and your device in your right hand. Hold your device upright against your chest, with the screen facing out, as pictured.";
+"FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_LEFT" = "Stand up with your feet shoulder-width apart and your device in your left hand. Hold your device firmly against your chest with the screen facing out, as pictured.";
+"FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_RIGHT" = "Stand up with your feet shoulder-width apart and your device in your right hand. Hold your device firmly against your chest with the screen facing out, as pictured.";
 "FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_LEFT" = "On the next screen, tap anywhere to start recording. Then, bend forwards as far as you can so that your right hand reaches towards the top of your right foot. Return to the upright position and tap the screen again when you are done.";
 "FORWARD_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_RIGHT" = "On the next screen, tap anywhere to start recording. Then, bend forwards as far as you can so that your left hand reaches towards the top of your left foot. Return to the upright position and tap the screen again when you are done.";
-"FORWARD_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_LEFT" = "Ensure that you are holding your device upright against your chest with your left hand with the screen facing out. Tap the screen to begin.";
-"FORWARD_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_RIGHT" = "Ensure that you are holding your device upright against your chest with your right hand with the screen facing out. Tap the screen to begin.";
+"FORWARD_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_LEFT" = "Ensure that you are holding your device firmly against your chest with your left hand and that the screen is facing out. Tap the screen to begin.";
+"FORWARD_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_RIGHT" = "Ensure that you are holding your device firmly against your chest with your right hand and that the screen is facing out. Tap the screen to begin.";
 "FORWARD_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT" = "Bend forwards as far as you can. Then return to the upright position and tap anywhere on the screen to finish.";
 "FORWARD_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT" = "Bend forwards as far as you can. Then return to the upright position and tap anywhere on the screen to finish.";
-
-/* Side Bending Range of Motion active task */
-"SIDE_BENDING_RANGE_OF_MOTION_TITLE_LEFT" = "Side Bending Range of Motion";
-"SIDE_BENDING_RANGE_OF_MOTION_TITLE_RIGHT" = "Side Bending Range of Motion";
-"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_LEFT" = "This activity measures how far you can bend to the side while standing, keeping your back against a flat wall with your legs straight and your knees together";
-"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_RIGHT" = "This activity measures how far you can bend to the side while standing, keeping your back against a flat wall with your legs straight and your knees together";
-"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions.";
-"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions.";
-"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_LEFT" = "Stand up straight with your back against a flat wall, keeping your knees together and your device in your left hand. Hold your device upright against your chest, with the screen facing out, as pictured.";
-"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_RIGHT" = "Stand up straight with your back against a flat wall, keeping your knees together and your device in your right hand. Hold your device upright against your chest, with the screen facing out, as pictured.";
-"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_LEFT" = "On the next screen, tap anywhere to start recording. Then, bend to the left side as far as you can by reaching your left hand towards your left ankle and keeping your back against the wall. Return to the upright position and tap the screen again when you are done.";
-"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_RIGHT" = "On the next screen, tap anywhere to start recording. Then, bend to the right side as far as you can by reaching your right hand towards your left ankle and keeping your back against the wall. Return to the upright position and tap the screen again when you are done.";
-"SIDE_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_LEFT" = "Ensure that you are holding your device upright against your chest with your left hand with the screen facing out. Tap the screen to begin.";
-"SIDE_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_RIGHT" = "Ensure that you are holding your device upright against your chest with your right hand with the screen facing out. Tap the screen to begin.";
-"SIDE_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT" = "Bend to the left side as far as you can. Then return to the upright position and tap anywhere on the screen to finish.";
-"SIDE_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT" = "Bend to the right side as far as you can. Then return to the upright position and tap anywhere on the screen to finish.";
 
 /* Trunk Rotation Range of Motion active task */
 "TRUNK_ROTATION_RANGE_OF_MOTION_TITLE_LEFT" = "Trunk Rotation Range of Motion";
 "TRUNK_ROTATION_RANGE_OF_MOTION_TITLE_RIGHT" = "Trunk Rotation Range of Motion";
-"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_LEFT" = "This activity measures how far you can rotate your trunk to the left while sitting upright, keeping your knees together and your feet flat on the ground";
-"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_RIGHT" = "This activity measures how far you can rotate your trunk to the right while sitting upright, keeping your knees together and your feet flat on the ground";
-"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions. Also, try to use the same seat every time you perform this task.";
-"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions. Also, try to use the same seat every time you perform this task.";
-"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_LEFT" = "Sit upright with your knees together, your feet flat on the ground and your device in both hands. Hold your device upright against your chest, with the screen facing out, as pictured.";
-"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_RIGHT" = "Sit upright with your knees together, your feet flat on the ground and your device in both hands. Hold your device upright against your chest, with the screen facing out, as pictured.";
+"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_LEFT" = "This task measures how far you can rotate your trunk to the left while sitting upright, keeping your knees together and your feet flat on the ground";
+"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_RIGHT" = "This task measures how far you can rotate your trunk to the right while sitting upright, keeping your knees together and your feet flat on the ground";
+"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions. Also, try to use the same seat without a back support every time you perform this task.";
+"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions. Also, try to use the same seat without a back support every time you perform this task.";
+"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_LEFT" = "Sit upright with your knees together, keeping your feet flat on the ground and your device in both hands. Hold your device firmly against your chest with the screen facing out, as pictured.";
+"TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_RIGHT" = "Sit upright with your knees together, keeping your feet flat on the ground and your device in both hands. Hold your device firmly against your chest with the screen facing out, as pictured.";
 "TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_LEFT" = "On the next screen, tap anywhere to start recording. Then, rotate your trunk by turning your upper body to the left as far as you can. Return to the start position and tap the screen again when you are done.";
 "TRUNK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_RIGHT" = "On the next screen, tap anywhere to start recording. Then, rotate your trunk by turning your upper body to the right as far as you can. Return to the start position and tap the screen again when you are done.";
-"TRUNK_ROTATION_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_LEFT" = "Ensure that you are holding your device upright against your chest with both hands with the screen facing out. Tap the screen to begin.";
-"TRUNK_ROTATION_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_RIGHT" = "Ensure that you are holding your device upright against your chest with both hands with the screen facing out. Tap the screen to begin.";
+"TRUNK_ROTATION_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_LEFT" = "Ensure that you are holding your device firmly against your chest with both hands and that the screen is facing out. Tap the screen to begin.";
+"TRUNK_ROTATION_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_RIGHT" = "Ensure that you are holding your device firmly against your chest with both hands and that the screen is facing out. Tap the screen to begin.";
 "TRUNK_ROTATION_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT" = "Turn your upper body to the left as far as you can. Then return to the start position and tap anywhere on the screen to finish.";
 "TRUNK_ROTATION_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT" = "Turn your upper body to the right as far as you can. Then return to the start position and tap anywhere on the screen to finish.";
+
+/* Side Bending Range of Motion active task */
+"SIDE_BENDING_RANGE_OF_MOTION_TITLE_LEFT" = "Side Bending Range of Motion";
+"SIDE_BENDING_RANGE_OF_MOTION_TITLE_RIGHT" = "Side Bending Range of Motion";
+"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_LEFT" = "This task measures how far you can bend to the left side while standing with your back against a flat wall, keeping your legs straight and your knees together";
+"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_RIGHT" = "This task measures how far you can bend to the right side while standing with your back against a flat wall, keeping your legs straight and your knees together";
+"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions.";
+"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT" = "Please ensure that the sound on your device is switched on so that you can hear the instructions.";
+"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_LEFT" = "Stand up straight with your back against a flat wall, keeping your knees together and your device in your right hand. Hold your device firmly against your chest with the screen facing out, as pictured.";
+"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_RIGHT" = "Stand up straight with your back against a flat wall, keeping your knees together and your device in your left hand. Hold your device firmly against your chest with the screen facing out, as pictured.";
+"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_LEFT" = "On the next screen, tap anywhere to start recording. Then, bend to the left side as far as you can by reaching your left hand towards your left ankle and keeping your back against the wall. Return to the upright position and tap the screen again when you are done.";
+"SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_RIGHT" = "On the next screen, tap anywhere to start recording. Then, bend to the right side as far as you can by reaching your right hand towards your right ankle and keeping your back against the wall. Return to the upright position and tap the screen again when you are done.";
+"SIDE_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_LEFT" = "Ensure that you are holding your device firmly against your chest with your left hand and that the screen is facing out. Tap the screen to begin.";
+"SIDE_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_RIGHT" = "Ensure that you are holding your device firmly against your chest with your right hand and that the screen is facing out. Tap the screen to begin.";
+"SIDE_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT" = "Bend to the left side as far as you can. Then return to the upright position and tap anywhere on the screen to finish.";
+"SIDE_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT" = "Bend to the right side as far as you can. Then return to the upright position and tap anywhere on the screen to finish.";
+
+/* Neck Flexion Range of Motion active task */
+"NECK_FLEXION_RANGE_OF_MOTION_TITLE_LEFT" = "Neck Flexion Range of Motion";
+"NECK_FLEXION_RANGE_OF_MOTION_TITLE_RIGHT" = "Neck Flexion Range of Motion";
+"NECK_FLEXION_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_LEFT" = "This task measures how far you can bend your neck forwards while sitting upright, without moving the rest of your body";
+"NECK_FLEXION_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_RIGHT" = "This task measures how far you can bend your neck forwards while sitting upright, without moving the rest of your body";
+"NECK_FLEXION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT" = "Please try to use the same seat with a back support every time you perform this task. Also, ensure that the sound on your device is switched on so that you can hear the instructions.";
+"NECK_FLEXION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT" = "Please try to use the same seat with a back support every time you perform this task. Also, ensure that the sound on your device is switched on so that you can hear the instructions.";
+"NECK_FLEXION_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_LEFT" = "Sit upright with your device in your left hand. Hold your device firmly against the left side of your face with the screen facing out, as pictured.";
+"NECK_FLEXION_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_RIGHT" = "Sit upright with your device in your right hand. Hold your device firmly against the right side of your face with the screen facing out, as pictured.";
+"NECK_FLEXION_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_LEFT" = "On the next screen, tap anywhere to start recording. Then, bend your neck forwards as far as you can so that your forehead bends towards your chest. Return to the upright position and tap the screen again when you are done.";
+"NECK_FLEXION_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_RIGHT" = "On the next screen, tap anywhere to start recording. Then, bend your neck forwards as far as you can so that your forehead bends towards your chest. Return to the upright position and tap the screen again when you are done.";
+"NECK_FLEXION_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_LEFT" = "Ensure that you are holding your device firmly against the left side of your face with your left hand and that the screen is facing out. Tap the screen to begin.";
+"NECK_FLEXION_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_RIGHT" = "Ensure that you are holding your device firmly against the right side of your face with your right hand and that the screen is facing out. Tap the screen to begin.";
+"NECK_FLEXION_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT" = "Bend your neck forwards as far as you can. Then, return to the upright position and tap anywhere on the screen to finish.";
+"NECK_FLEXION_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT" = "Bend your neck forwards as far as you can. Then, return to the upright position and tap anywhere on the screen to finish.";
+
+/* Neck Rotation Range of Motion active task */
+"NECK_ROTATION_RANGE_OF_MOTION_TITLE_LEFT" = "Neck Rotation Range of Motion";
+"NECK_ROTATION_RANGE_OF_MOTION_TITLE_RIGHT" = "Neck Rotation Range of Motion";
+"NECK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_LEFT" = "This task measures how far you can turn your head to the left while sitting upright, without moving the rest of your body";
+"NECK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_RIGHT" = "This task measures how far you can turn your head to the right while sitting upright, without moving the rest of your body";
+"NECK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT" = "Please try to use the same seat with a back support every time you perform this task. Also, ensure that the sound on your device is switched on so that you can hear the instructions.";
+"NECK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT" = "Please try to use the same seat with a back support every time you perform this task. Also, ensure that the sound on your device is switched on so that you can hear the instructions.";
+"NECK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_LEFT" = "Sit upright with your device in your right hand. Hold your device firmly against the right side of your face with the screen facing out, as pictured.";
+"NECK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_RIGHT" = "Sit upright with your device in your left hand. Hold your device firmly against the left side of your face with the screen facing out, as pictured.";
+"NECK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_LEFT" = "On the next screen, tap anywhere to start recording. Then, turn your head to the left as far as you can so that you look over your left shoulder. Return your head to the start position and tap the screen again when you are done.";
+"NECK_ROTATION_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_RIGHT" = "On the next screen, tap anywhere to start recording. Then, turn your head to the right as far as you can so that you look over your right shoulder. Return your head to the start position and tap the screen again when you are done.";
+"NECK_ROTATION_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_LEFT" = "Ensure that you are holding your device firmly against the right side of your face with your right hand and that the screen is facing out. Tap the screen to begin.";
+"NECK_ROTATION_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_RIGHT" = "Ensure that you are holding your device firmly against the left side of your face with your left hand and that the screen is facing out. Tap the screen to begin.";
+"NECK_ROTATION_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT" = "Turn your head to the left as far as you can. Then return to the start position and tap anywhere on the screen to finish.";
+"NECK_ROTATION_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT" = "Turn your head to the right as far as you can. Then return to the start position and tap anywhere on the screen to finish.";
+
+/* Neck Side Bending Range of Motion active task */
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TITLE_LEFT" = "Neck Side Bending Range of Motion";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TITLE_RIGHT" = "Neck Side Bending Range of Motion";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_LEFT" = "This task measures how far you can bend your neck to the side while sitting upright, without moving the rest of your body";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_0_RIGHT" = "This task measures how far you can bend your neck to the side while sitting upright, without moving the rest of your body";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_LEFT" = "Please try to use the same seat with a back support every time you perform this task. Also, ensure that the sound on your device is switched on so that you can hear the instructions.";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_1_RIGHT" = "Please try to use the same seat with a back support every time you perform this task. Also, ensure that the sound on your device is switched on so that you can hear the instructions.";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_LEFT" = "Sit upright with your device in your right hand. Hold your device firmly against the right side of your face with the screen facing out, as pictured.";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_2_RIGHT" = "Sit upright with your device in your left hand. Hold your device firmly against the left side of your face with the screen facing out, as pictured.";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_LEFT" = "On the next screen, tap anywhere to start recording. Then, bend your neck to the left side as far as you can so that your left ear bends towards your left shoulder. Return your head to the upright position and tap the screen again when you are done.";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TEXT_INSTRUCTION_3_RIGHT" = "On the next screen, tap anywhere to start recording. Then, bend your neck to the right side as far as you can so that your right ear bends towards your right shoulder. Return your head to the upright position and tap the screen again when you are done.";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_LEFT" = "Ensure that you are holding your device firmly against the right side of your face with your right hand and that the screen is facing out. Tap the screen to begin.";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_TOUCH_ANYWHERE_STEP_INSTRUCTION_RIGHT" = "Ensure that you are holding your device firmly against the left side of your face with your left hand and that the screen is facing out. Tap the screen to begin.";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_LEFT" = "Bend your neck to the left side as far as you can. Then, return your head to the upright position and tap anywhere on the screen to finish.";
+"NECK_SIDE_BENDING_RANGE_OF_MOTION_SPOKEN_INSTRUCTION_RIGHT" = "Bend your neck to the right side as far as you can. Then, return your head to the upright position and tap anywhere on the screen to finish.";
 
 /* Timed walk active task. */
 "TIMED_WALK_TITLE" = "Timed Walk";
