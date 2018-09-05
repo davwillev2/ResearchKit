@@ -106,7 +106,7 @@
     
     double angle = [self getDeviceAngleInDegreesFromAttitude:currentAttitude];
     
-    //This function shifts the range of angles reported by the device from +/-180 degrees to -90 to +270 degrees, which should be sufficient to cover all ahievable knee and shoulder ranges of motion
+    //This function shifts the range of angles reported by the device from +/-180 degrees to -90 to +270 degrees, which should be sufficient to cover all achievable knee and shoulder ranges of motion
     BOOL shiftAngleRange = angle < -90 && angle >= -180;
     if (shiftAngleRange) {
         _newAngle = 360 - fabs(angle);
